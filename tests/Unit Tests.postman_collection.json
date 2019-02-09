@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "96ef5932-08c0-421c-9019-3fce9ddee2b2",
+		"name": "Unit Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Employees Entries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJyZWFkZXIiLCJpc19hZG1pbiI6MCwiaWF0IjoxNTQ5NTYwNjUzLCJleHAiOjE1NDk2NDcwNTN9.ff8P-U30_cCOxyoq60JAfwlvZOBWYetqgz51zWIZwWU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees"
+					]
+				},
+				"description": "Get all entries from the employees table"
+			},
+			"response": []
+		}
+	]
+}
