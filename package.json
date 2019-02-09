@@ -1,7 +1,21 @@
 {
   "name": "postgress-with-postman-tdd",
   "version": "1.0.0",
+  "description": "Learning to use postgress with postman TDD",
   "main": "index.js",
+  "scripts": {
+    "test": "cross-env DB_ENV=testing jest --watch --verbose",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamespagedev/postgress-with-postman-tdd.git"
+  },
   "author": "jamespagedev <jamespagedev@outlook.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamespagedev/postgress-with-postman-tdd/issues"
+  },
+  "homepage": "https://github.com/jamespagedev/postgress-with-postman-tdd#readme"
 }
