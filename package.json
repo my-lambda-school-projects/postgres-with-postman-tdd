@@ -1,0 +1,7 @@
+{
+  "name": "postgress-with-postman-tdd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "jamespagedev <jamespagedev@outlook.com>",
+  "license": "MIT"
+}
