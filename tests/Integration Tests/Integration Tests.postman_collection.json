@@ -1,0 +1,24 @@
+{
+	"info": {
+		"_postman_id": "efcab319-f02d-4e7f-b393-772efd7cad44",
+		"name": "Integration Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
