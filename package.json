@@ -4,7 +4,7 @@
   "description": "Learning to use postgress with postman TDD",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "repository": {
