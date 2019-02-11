@@ -2,9 +2,9 @@
   "name": "postgress-with-postman-tdd",
   "version": "1.0.0",
   "description": "Learning to use postgress with postman TDD",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "repository": {
