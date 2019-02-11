@@ -31,7 +31,6 @@ module.exports = {
       directory: './db/migrations',
       tableName: 'dbmigrations'
     },
-    seeds: { directory: './db/seeds' },
-    useNullAsDefault: true // used to avoid warning on console
+    seeds: { directory: './db/seeds' }
   }
 };
