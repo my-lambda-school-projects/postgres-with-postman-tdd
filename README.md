@@ -11,7 +11,9 @@
 
 - (optional): edit C:\Program Files\PostgreSQL\11\data\pg_hba.conf replace all lines `md5` with `trust` (recommended for first time learning experience)
 
-## setup db/users with pgAdmin (installed with postgres):
+## setup db/users with pgAdmin (installed with postgres)
+
+---
 
 ### NOTE: DON'T FORGET TO UPDATE THE knexfile.js settings
 

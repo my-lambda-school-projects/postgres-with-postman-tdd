@@ -2,32 +2,37 @@ const errorHandler = (err, req, res, next) => {
   switch (err.code) {
     case 400:
       return res.status(400).json({
-        error: 400,
-        message: 'There was a problem with your request.'
+        'http error code': 400,
+        message: 'Bad Request'
       });
 
     case 401:
       return res.status(401).json({
-        error: 401,
-        message: 'You are unathorized to view the content.'
+        'http error code': 401,
+        message: 'You are unathorized to view the content'
+      });
+
+    case 402:
+      return res.status(401).json({
+        'http error code': 402,
+        message: 'Payment Required'
       });
 
     case 403:
       return res.status(403).json({
-        error: 403,
-        message:
-          "Forbidden: You don't have permission to access the endpoint on this server"
+        'http error code': 403,
+        message: 'Forbidden: Access Denied'
       });
 
     case 404:
       return res.status(404).json({
-        error: 404,
-        message: 'The requested content does not exist.'
+        'http error code': 404,
+        message: 'Not Found'
       });
 
     default:
       res.status(500).json({
-        error: 500,
+        'http error code': 500,
         message: 'There was an error performing the required operation'
       });
   }

@@ -2,12 +2,12 @@
 require('dotenv').config();
 
 module.exports = {
-  jamespagedev: {
+  development: {
     client: 'pg',
     connection: {
       host: 'localhost',
-      port: 6841,
-      user: 'jamespagedev',
+      port: 5432,
+      user: 'postgres',
       database: 'postgresDB',
       charset: 'utf8'
     },

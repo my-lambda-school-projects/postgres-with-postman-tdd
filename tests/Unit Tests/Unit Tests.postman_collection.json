@@ -1,21 +1,78 @@
 {
 	"info": {
-		"_postman_id": "96ef5932-08c0-421c-9019-3fce9ddee2b2",
+		"_postman_id": "227709b3-c085-41ef-afc8-3d270b064dfd",
 		"name": "Unit Tests",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Get Employees Entries",
+			"name": "Insert Employee in Employees TBL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a97a96d7-bee2-4498-b7fe-965c3fab57f8",
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code 201 and count 1\", function () {",
+							"    pm.response.to.have.status(201);",
+							"    console.log(jsonData.rowsAdded)",
+							"    pm.expect(jsonData.rowsAdded.rowCount).to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
-						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywidXNlcm5hbWUiOiJyZWFkZXIiLCJpc19hZG1pbiI6MCwiaWF0IjoxNTQ5NTYwNjUzLCJleHAiOjE1NDk2NDcwNTN9.ff8P-U30_cCOxyoq60JAfwlvZOBWYetqgz51zWIZwWU",
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"employee_id\": 9999,\n\t\"usr\": \"user9999\",\n\t\"display_name\": \"User 9999\",\n\t\"pwd\": \"pass123\",\n\t\"email\": \"user9999@example.com\",\n\t\"img_url\": \"https://cats.com\",\n\t\"active\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees"
+					]
+				},
+				"description": "Add a single employee entry into the employees table"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees Entries",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe58bd7e-c50b-48c4-98fa-f88a1fade6ec",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": ""
@@ -32,6 +89,92 @@
 					]
 				},
 				"description": "Get all entries from the employees table"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Employee in Employees TBL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2e68bb51-3669-429d-87c7-5cc3b3526fa3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"display_name\": \"User\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees",
+						"9999"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Employee in Employees TBL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07a86e9c-b515-4b92-8228-afa56f76cdf6",
+						"exec": [
+							"let jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 202\", function () {",
+							"    pm.response.to.have.status(202);",
+							"    pm.expect(jsonData.rowsDeleted).to.not.equal(0);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/employees/9999",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"employees",
+						"9999"
+					]
+				}
 			},
 			"response": []
 		}

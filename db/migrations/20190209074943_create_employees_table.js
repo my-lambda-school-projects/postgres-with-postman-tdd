@@ -10,7 +10,10 @@ exports.up = function(knex, Promise) {
       .unique();
     tbl.string('display_name', 128).unique();
     tbl.string('pwd', 128).notNullable();
-    tbl.string('email', 255).notNullable();
+    tbl
+      .string('email', 255)
+      .notNullable()
+      .unique();
     tbl.text('img_url');
     tbl.boolean('active').defaultTo(true);
   });
