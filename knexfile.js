@@ -2,19 +2,22 @@
 require('dotenv').config();
 
 module.exports = {
-  development: {
+  jamespagedev: {
     client: 'pg',
     connection: {
       host: 'localhost',
-      user: 'james',
-      database: 'pg'
+      port: 6841,
+      user: 'jamespagedev',
+      database: 'postgresDB',
+      charset: 'utf8'
     },
 
     useNullAsDefault: true,
     migrations: {
       directory: './db/migrations',
       tableName: 'dbmigrations'
-    }
+    },
+    seeds: { directory: './db/seeds' }
   },
 
   production: {
@@ -27,6 +30,8 @@ module.exports = {
     migrations: {
       directory: './db/migrations',
       tableName: 'dbmigrations'
-    }
+    },
+    seeds: { directory: './db/seeds' },
+    useNullAsDefault: true // used to avoid warning on console
   }
 };
