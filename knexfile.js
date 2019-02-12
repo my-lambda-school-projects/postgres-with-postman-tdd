@@ -1,36 +1,33 @@
 // Update with your config settings.
 require('dotenv').config();
 
-module.exports = {
-  development: {
-    client: 'pg',
-    connection: {
-      host: 'localhost',
-      port: 5432,
-      user: 'postgres',
-      database: 'postgresDB',
-      charset: 'utf8'
-    },
+const localPg = {
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  user: process.env.USER,
+  password: process.env.PASS || ''
+};
 
-    useNullAsDefault: true,
-    migrations: {
-      directory: './db/migrations',
-      tableName: 'dbmigrations'
-    },
-    seeds: { directory: './db/seeds' }
+const dbConnection = process.env.DATABASE_URL || localPg;
+
+const dbSettings = {
+  client: 'pg',
+  connection: dbConnection,
+  pool: {
+    min: 2,
+    max: 10
   },
-
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      directory: './db/migrations',
-      tableName: 'dbmigrations'
-    },
-    seeds: { directory: './db/seeds' }
+  useNullAsDefault: true,
+  migrations: {
+    directory: './db/migrations',
+    tableName: 'dbmigrations'
+  },
+  seeds: {
+    directory: './db/seeds'
   }
+};
+
+module.exports = {
+  development: dbSettings,
+  production: dbSettings
 };
