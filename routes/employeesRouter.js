@@ -3,7 +3,7 @@
  **************************************************************************************************/
 require('dotenv').config();
 const express = require('express');
-const tblEmployees = require('../../db/helpers/dbEmployeesHelpers.js');
+const tblEmployees = require('../db/models/employeesDB.js');
 // const bcrypt = require('bcryptjs');
 const router = express.Router();
 // const jwt = require('jsonwebtoken');
